@@ -1,0 +1,37 @@
+[
+  {
+    "enabled": true,
+    "code": "balladeer",
+    "traits": [ "bard", "fleetfooted", "picky_eater", "brash", "claustrophobic", "overconfident", "frail" ],
+    "gear": [
+      {
+        "type": "item",
+        "code": "game:clothes-upperbody-minstrel-shirt"
+      },
+      {
+        "type": "item",
+        "code": "game:clothes-head-minstrel-hat"
+      },
+      {
+        "type": "item",
+        "code": "game:clothes-shoulder-minstrel-coat"
+      },
+      {
+        "type": "item",
+        "code": "game:clothes-hand-minstrel-gloves"
+      },
+      {
+        "type": "item",
+        "code": "game:clothes-foot-minstrel-boots"
+      },
+      {
+        "type": "item",
+        "code": "game:clothes-lowerbody-minstrel-pants"
+      },
+      {
+        "type": "item",
+        "code": "instruments:accordion"
+      }
+    ]
+  }
+]

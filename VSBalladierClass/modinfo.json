@@ -1,0 +1,18 @@
+{
+    "$schema": "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
+    "type": "Code",
+    "modid": "vsballadeerclass",
+    "name": "Balladeer Class",
+    "authors": [
+        "saturniidae"
+    ],
+    "description": "Play instruments to buff nearby players!",
+    "version": "1.0.0",
+  "dependencies": {
+    "game": "1.21.0",
+    "survival": "",
+    "vsinstrumentsbase": "2.0.4",
+    "effectshud": "0.2.14"
+  },
+  "website": "https://satyrn.dev"
+}

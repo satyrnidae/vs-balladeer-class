@@ -1,0 +1,29 @@
+[
+  {
+    "code": "bard",
+    "type": "positive",
+    "attributes": {}
+  },
+  {
+    "code": "brash",
+    "type": "negative",
+    "attributes": {
+      "animalSeekingRange": 0.15
+    }
+  },
+  {
+    "code": "overconfident",
+    "type": "negative",
+    "attributes": {
+      "meleeWeaponsDamage": -0.15,
+      "rangedWeaponsDamage": -0.15
+    }
+  },
+  {
+    "code": "picky_eater",
+    "type": "positive",
+    "attributes": {
+      "hungerrate":  -0.10
+    }
+  }
+]
