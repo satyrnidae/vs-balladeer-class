@@ -7,12 +7,12 @@
         "saturniidae"
     ],
     "description": "Play instruments to buff nearby players!",
-    "version": "1.0.0",
+    "version": "1.1.0",
   "dependencies": {
     "game": "1.21.0",
     "survival": "",
     "vsinstrumentsbase": "2.0.4",
-    "effectshud": "0.2.14"
+    "effectshud": "0.2.15"
   },
   "website": "https://satyrn.dev"
 }

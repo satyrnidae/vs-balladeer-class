@@ -1,27 +1,26 @@
-﻿using effectshud.src;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using effectshud.src;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Vintagestory.API.Common.Entities;
 
 namespace VSBalladeerClass.Effects
 {
     public abstract class CustomEffect : Effect
     {
-        protected Entity? Entity
+        // Retrieve the field via reflection only ONCE
+        private static FieldInfo EntityField { get; } =
+            typeof(Effect).GetField("entity", BindingFlags.Instance | BindingFlags.NonPublic) ??
+            throw new Exception("Unable to find the entity field on the Effect type!");
+
+        protected Entity? Entity => (Entity?)EntityField.GetValue(this);
+
+        protected CustomEffect()
         {
-            get
-            {
-                return (Entity?)typeof(Effect).GetField("entity", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(this);
-            }
         }
 
-        protected CustomEffect() { }
-
-        protected CustomEffect(int tier, bool infinite) : base(tier, infinite) { }
+        protected CustomEffect(int tier, bool infinite) : base(tier, infinite)
+        {
+        }
 
         protected void SetStat(string statName, string modifierName, float effectiveness)
         {
@@ -30,18 +29,15 @@ namespace VSBalladeerClass.Effects
 
         public override bool OnDeath()
         {
-            EBEffectsAffected? ebea = Entity?.GetBehavior<EBEffectsAffected>();
-            if (ebea == null)
+            var behavior = Entity?.GetBehavior<EBEffectsAffected>();
+            if (behavior == null || !removedAfterDeath)
             {
                 return false;
             }
-            if (this.removedAfterDeath)
-            {
-                ebea.activeEffects.Remove(this.effectTypeId);
-                ebea.needUpdate = true;
-                return true;
-            }
-            return false;
+
+            behavior.activeEffects.Remove(this.effectTypeId);
+            behavior.needUpdate = true;
+            return true;
         }
     }
 }

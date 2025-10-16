@@ -1,10 +1,22 @@
 ﻿using effectshud.src;
+using effectshud.src.DefaultEffects;
 
 namespace VSBalladeerClass.Effects
 {
     public class BalladeerEffect : CustomEffect
     {
-        private static string BALLADEER_EFFECT = "balladeerbuff";
+        #region Constants
+        private const string BALLADEER_EFFECT = "balladeerbuff";
+        private const string HEALING_EFFECTIVENESS = "healingeffectivness";
+        private const string HUNGER_RATE = "hungerrate";
+        private const string CAN_TEMPORAL_CHARGE = "cantemporalcharge";
+        private const string WALK_SPEED = "walkspeed";
+        private const string MELEE_WEAPON_DAMAGE = "meleeWeaponsDamage";
+        private const string RANGED_WEAPONS_DAMAGE = "rangedWeaponsDamage";
+        private const string RANGED_WEAPONS_ACCURACY = "rangedWeaponsAcc";
+        private const string RANGED_WEAPONS_SPEED = "rangedWeaponsSpeed";
+        private const string ANIMAL_SEEKING_RANGE = "animalSeekingRange";
+        #endregion Constants
 
         public BalladeerEffect()
         {
@@ -20,15 +32,7 @@ namespace VSBalladeerClass.Effects
 
         public override void OnStart()
         {
-            SetStat("healingeffectivness", BALLADEER_EFFECT, 0.15f * tier);
-            SetStat("hungerrate", BALLADEER_EFFECT, -0.20f * tier);
-            SetStat("cantemporalcharge", BALLADEER_EFFECT, 0.10f * tier);
-            SetStat("walkspeed", BALLADEER_EFFECT, 0.10f * tier);
-            SetStat("meleeWeaponsDamage", BALLADEER_EFFECT, 0.25f * tier);
-            SetStat("rangedWeaponsDamage", BALLADEER_EFFECT, 0.25f * tier);
-            SetStat("rangedWeaponsAcc", BALLADEER_EFFECT, 0.1f * tier);
-            SetStat("rangedWeaponsSpeed", BALLADEER_EFFECT, 0.1f * tier);
-            SetStat("animalSeekingRange", BALLADEER_EFFECT, 0.35f * tier);
+            ApplyStatChange(tier);
         }
 
         public override void OnStack(Effect otherEffect)
@@ -38,16 +42,9 @@ namespace VSBalladeerClass.Effects
                 if (tier < otherEffect.Tier)
                 {
                     tier = otherEffect.Tier;
-                    SetStat("healingeffectivness", BALLADEER_EFFECT, 0.15f * tier);
-                    SetStat("hungerrate", BALLADEER_EFFECT, -0.20f * tier);
-                    SetStat("cantemporalcharge", BALLADEER_EFFECT, 0.10f * tier);
-                    SetStat("walkspeed", BALLADEER_EFFECT, 0.10f * tier);
-                    SetStat("meleeWeaponsDamage", BALLADEER_EFFECT, 0.25f * tier);
-                    SetStat("rangedWeaponsDamage", BALLADEER_EFFECT, 0.25f * tier);
-                    SetStat("rangedWeaponsAcc", BALLADEER_EFFECT, 0.1f * tier);
-                    SetStat("rangedWeaponsSpeed", BALLADEER_EFFECT, 0.1f * tier);
-                    SetStat("animalSeekingRange", BALLADEER_EFFECT, 0.35f * tier);
+                    ApplyStatChange(tier);
                 }
+
                 ExpireTick = otherEffect.ExpireTick;
                 TickCounter = otherEffect.TickCounter;
             }
@@ -55,29 +52,26 @@ namespace VSBalladeerClass.Effects
 
         public override void OnExpire()
         {
-            SetStat("healingeffectivness", BALLADEER_EFFECT, 0f);
-            SetStat("hungerrate", BALLADEER_EFFECT, 0f);
-            SetStat("cantemporalcharge", BALLADEER_EFFECT, 0f);
-            SetStat("walkspeed", BALLADEER_EFFECT, 0f);
-            SetStat("meleeWeaponsDamage", BALLADEER_EFFECT, 0f);
-            SetStat("rangedWeaponsDamage", BALLADEER_EFFECT, 0f);
-            SetStat("rangedWeaponsAcc", BALLADEER_EFFECT, 0f);
-            SetStat("rangedWeaponsSpeed", BALLADEER_EFFECT, 0f);
-            SetStat("animalSeekingRange", BALLADEER_EFFECT, 0f);
+            ApplyStatChange(0);
         }
 
         public override bool OnDeath()
         {
-            SetStat("healingeffectivness", BALLADEER_EFFECT, 0f);
-            SetStat("hungerrate", BALLADEER_EFFECT, 0f);
-            SetStat("cantemporalcharge", BALLADEER_EFFECT, 0f);
-            SetStat("walkspeed", BALLADEER_EFFECT, 0f);
-            SetStat("meleeWeaponsDamage", BALLADEER_EFFECT, 0f);
-            SetStat("rangedWeaponsDamage", BALLADEER_EFFECT, 0f);
-            SetStat("rangedWeaponsAcc", BALLADEER_EFFECT, 0f);
-            SetStat("rangedWeaponsSpeed", BALLADEER_EFFECT, 0f);
-            SetStat("animalSeekingRange", BALLADEER_EFFECT, 0f);
+            ApplyStatChange(0);
             return base.OnDeath();
+        }
+
+        private void ApplyStatChange(int multiplier)
+        {
+            SetStat(HEALING_EFFECTIVENESS, BALLADEER_EFFECT, 0.15f * multiplier);
+            SetStat(HUNGER_RATE, BALLADEER_EFFECT, -0.20f * multiplier);
+            SetStat(CAN_TEMPORAL_CHARGE, BALLADEER_EFFECT, 0.2f * multiplier);
+            SetStat(WALK_SPEED, BALLADEER_EFFECT, 0.10f * multiplier);
+            SetStat(MELEE_WEAPON_DAMAGE, BALLADEER_EFFECT, 0.25f * multiplier);
+            SetStat(RANGED_WEAPONS_DAMAGE, BALLADEER_EFFECT, 0.25f * multiplier);
+            SetStat(RANGED_WEAPONS_ACCURACY, BALLADEER_EFFECT, 0.1f * multiplier);
+            SetStat(RANGED_WEAPONS_SPEED, BALLADEER_EFFECT, 0.1f * multiplier);
+            SetStat(ANIMAL_SEEKING_RANGE, BALLADEER_EFFECT, 0.35f * multiplier);
         }
     }
 }

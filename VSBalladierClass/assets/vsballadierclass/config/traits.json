@@ -23,7 +23,7 @@
     "code": "picky_eater",
     "type": "positive",
     "attributes": {
-      "hungerrate":  -0.10
+      "hungerrate":  -0.05
     }
   }
 ]
