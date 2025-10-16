@@ -8,12 +8,11 @@
   "traitname-brash": "Brash",
   "traitname-overconfident": "Overconfident",
   "traitname-picky_eater": "Picky eater",
-  "traitdesc-bard": "While playing a song: +15% healing effectiveness, -20% hunger rate, +20% temporal charge, +10% walk speed, +25% melee and ranged weapon damage, +10% ranged weapon accuracy and speed, and +35% animal detection range for nearby Seraphs",
-
+  "traitdesc-bard": "Applies the following to nearby Seraphs while playing: <font color=\"#ff8484\">+15% animal detection range</font>, +15% healing effectiveness, -15% hunger rate, +20% temporal charge, +10% walk speed, +25% melee and ranged weapon damage, +10% ranged weapon accuracy and speed",
   "characterclass-balladeer": "Balladeer",
 
   "charattribute-animalSeekingRange-0.15": "+15% animal detection range",
   "charattribute-hungerrate--0.05": "-5% hunger rate",
 
-  "characterdesc-balladeer": "<font color=\"#99c9f9\"><i>Your first memories are of music. The way it fills the air, suffuses the very soul of the listener. You don't remember when you learned to play, but you can, and your music has a profound effect on people...</i></font>"
+  "characterdesc-balladeer": "<font color=\"#99c9f9\"><i>Your first memories are of music. You don't remember when you learned to play, but you can, and your music has a profound effect on people.</i></font>"
 }

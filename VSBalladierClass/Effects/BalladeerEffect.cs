@@ -66,14 +66,14 @@ namespace VSBalladeerClass.Effects
         private void ApplyStatChange(int multiplier)
         {
             SetStat(HEALING_EFFECTIVENESS, BALLADEER_EFFECT, 0.15f * multiplier);
-            SetStat(HUNGER_RATE, BALLADEER_EFFECT, -0.20f * multiplier);
+            SetStat(HUNGER_RATE, BALLADEER_EFFECT, -0.15f * multiplier);
             SetStat(CAN_TEMPORAL_CHARGE, BALLADEER_EFFECT, 0.2f * multiplier);
             SetStat(WALK_SPEED, BALLADEER_EFFECT, 0.10f * multiplier);
             SetStat(MELEE_WEAPON_DAMAGE, BALLADEER_EFFECT, 0.25f * multiplier);
             SetStat(RANGED_WEAPONS_DAMAGE, BALLADEER_EFFECT, 0.25f * multiplier);
             SetStat(RANGED_WEAPONS_ACCURACY, BALLADEER_EFFECT, 0.1f * multiplier);
             SetStat(RANGED_WEAPONS_SPEED, BALLADEER_EFFECT, 0.1f * multiplier);
-            SetStat(ANIMAL_SEEKING_RANGE, BALLADEER_EFFECT, 0.35f * multiplier);
+            SetStat(ANIMAL_SEEKING_RANGE, BALLADEER_EFFECT, 0.15f * multiplier);
         }
     }
 }
