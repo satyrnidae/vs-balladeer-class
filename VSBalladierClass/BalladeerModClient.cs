@@ -64,6 +64,7 @@ namespace VSBalladeerClass
         private void ReceiveConfigurationSyncPacket(ConfigurationSyncPacket packet)
         {
             Mod.Logger.Notification("Overriding client configuration with server configuration.");
+            // Does the effect radius really *need* to be synced? No. Will I anyway? I guess!
             Mod.Logger.Debug(
                 $"{nameof(Configuration)}.{nameof(Configuration.EffectRadius)}.{nameof(Configuration.EffectRadius.Horizontal)}: {Configuration.EffectRadius.Horizontal} => {packet.EffectRadiusHorizontal}");
             Configuration.EffectRadius.Horizontal = packet.EffectRadiusHorizontal;
