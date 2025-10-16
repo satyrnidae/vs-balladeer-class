@@ -3,7 +3,7 @@
 Requires [Instruments](https://mods.vintagestory.at/show/mod/463)\* and [CAN Effects](https://mods.vintagestory.at/effectshud)
 
 
-*\* I also recommend [Instruments QuackPack](https://mods.vintagestory.at/show/mod/17850) for some nice default instruments and the starting accordion.*\
+*\* I also recommend [Instruments QuackPack](https://mods.vintagestory.at/show/mod/17850) for some nice default instruments and the starting accordion.*
 
 ---
 
