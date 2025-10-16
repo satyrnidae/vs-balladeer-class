@@ -6,6 +6,7 @@ namespace VSBalladeerClass.Effects
     public class BalladeerEffect : CustomEffect
     {
         #region Constants
+
         private const string BALLADEER_EFFECT = "balladeerbuff";
         private const string HEALING_EFFECTIVENESS = "healingeffectivness";
         private const string HUNGER_RATE = "hungerrate";
@@ -16,6 +17,7 @@ namespace VSBalladeerClass.Effects
         private const string RANGED_WEAPONS_ACCURACY = "rangedWeaponsAcc";
         private const string RANGED_WEAPONS_SPEED = "rangedWeaponsSpeed";
         private const string ANIMAL_SEEKING_RANGE = "animalSeekingRange";
+
         #endregion Constants
 
         public BalladeerEffect()
