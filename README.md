@@ -7,7 +7,7 @@ Requires [Instruments](https://mods.vintagestory.at/show/mod/463)\* and [CAN Eff
 
 ---
 
-![Balladeer in a tavern](screenshots/tavern%20setpiece.png)
+![Balladeer in a tavern](screenshots/tavern%20setpiece%20small.png)
 
 Introducing the Balladeer!
 
