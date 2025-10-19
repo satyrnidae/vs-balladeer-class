@@ -1,6 +1,5 @@
 [
   {
-    "enabled": true,
     "code": "balladeer",
     "traits": [ "bard", "fleetfooted", "picky_eater", "brash", "claustrophobic", "overconfident", "frail" ],
     "gear": [
