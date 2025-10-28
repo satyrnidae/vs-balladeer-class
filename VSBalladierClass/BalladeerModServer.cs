@@ -45,11 +45,7 @@ namespace VSBalladeerClass
         private void Event_PlayerJoin(IServerPlayer byPlayer)
         {
             Mod.Logger.Notification($"Player {byPlayer.PlayerName} joined, syncing config.");
-            ServerNetworkChannel.SendPacket(new ConfigurationSyncPacket()
-            {
-                EffectRadiusHorizontal = Configuration.EffectRadius.Horizontal,
-                EffectRadiusVertical = Configuration.EffectRadius.Vertical
-            }, byPlayer);
+            ServerNetworkChannel.SendPacket(Configuration, byPlayer);
         }
 
         private void ReceivedEffectTriggerPacket(IServerPlayer fromPlayer, EffectTriggerPacket packet)
@@ -66,7 +62,7 @@ namespace VSBalladeerClass
             {
                 Mod.Logger.Debug($"Applying effect to {player.PlayerName} ({player.Entity.Pos.X}, {player.Entity.Pos.Y}, {player.Entity.Pos.Z})");
                 effectshud.src.effectshud.ApplyEffectOnEntity(player.Entity,
-                    new BalladeerEffect(seconds: 5, tier: 1, infinite: false));
+                    new BalladeerEffect(7, 1));
             }
         }
     }

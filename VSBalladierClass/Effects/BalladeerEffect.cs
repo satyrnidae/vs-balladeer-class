@@ -17,6 +17,7 @@ namespace VSBalladeerClass.Effects
         private const string RANGED_WEAPONS_ACCURACY = "rangedWeaponsAcc";
         private const string RANGED_WEAPONS_SPEED = "rangedWeaponsSpeed";
         private const string ANIMAL_SEEKING_RANGE = "animalSeekingRange";
+        private const string MINING_SPEED_MUL = "miningSpeedMul";
 
         #endregion Constants
 
@@ -25,7 +26,7 @@ namespace VSBalladeerClass.Effects
             effectTypeId = BALLADEER_EFFECT;
         }
 
-        public BalladeerEffect(int seconds = 5, int tier = 1, bool infinite = false) : base(1, infinite)
+        public BalladeerEffect(int seconds, int tier, bool infinite = false) : base(tier, infinite)
         {
             SetExpiryInRealSeconds(seconds);
             positive = true;
@@ -54,13 +55,18 @@ namespace VSBalladeerClass.Effects
 
         public override void OnExpire()
         {
-            ApplyStatChange(0);
+            ClearStatChange();
         }
 
         public override bool OnDeath()
         {
-            ApplyStatChange(0);
+            ClearStatChange();
             return base.OnDeath();
+        }
+
+        private void ClearStatChange()
+        {
+            ApplyStatChange(0);
         }
 
         private void ApplyStatChange(int multiplier)
@@ -74,6 +80,7 @@ namespace VSBalladeerClass.Effects
             SetStat(RANGED_WEAPONS_ACCURACY, BALLADEER_EFFECT, 0.1f * multiplier);
             SetStat(RANGED_WEAPONS_SPEED, BALLADEER_EFFECT, 0.1f * multiplier);
             SetStat(ANIMAL_SEEKING_RANGE, BALLADEER_EFFECT, 0.15f * multiplier);
+            SetStat(MINING_SPEED_MUL, BALLADEER_EFFECT, 0.1f * multiplier);
         }
     }
 }

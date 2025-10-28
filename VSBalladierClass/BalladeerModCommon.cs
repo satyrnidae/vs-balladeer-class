@@ -44,7 +44,7 @@ namespace VSBalladeerClass
 
             NetworkChannel
                 .RegisterMessageType(typeof(EffectTriggerPacket))
-                .RegisterMessageType(typeof(ConfigurationSyncPacket));
+                .RegisterMessageType(typeof(Configuration));
         }
 
         private void LoadConfiguration(ICoreAPI api)

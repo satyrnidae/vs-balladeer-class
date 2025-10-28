@@ -8,7 +8,7 @@
   "traitname-brash": "Brash",
   "traitname-overconfident": "Overconfident",
   "traitname-picky_eater": "Picky eater",
-  "traitdesc-bard": "Applies the following to nearby Seraphs while playing: <font color=\"#ff8484\">+15% animal detection range</font>, +15% healing effectiveness, -15% hunger rate, +20% temporal charge, +10% walk speed, +25% melee and ranged weapon damage, +10% ranged weapon accuracy and speed",
+  "traitdesc-bard": "Applies the following to nearby Seraphs while playing: <font color=\"#ff8484\">+15% animal detection range</font>, +15% healing effectiveness, -15% hunger rate, +20% temporal charge, +10% walk speed, +10% mining speed, +25% melee and ranged weapon damage, +10% ranged weapon accuracy and speed",
   "characterclass-balladeer": "Balladeer",
 
   "charattribute-animalSeekingRange-0.15": "+15% animal detection range",

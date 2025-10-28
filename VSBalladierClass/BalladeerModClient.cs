@@ -5,6 +5,7 @@ using effectshud.src;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
+using VSBalladeerClass.Model;
 using VSBalladeerClass.Network;
 
 namespace VSBalladeerClass
@@ -55,22 +56,22 @@ namespace VSBalladeerClass
                 $"Failed to locate the {nameof(InstrumentModClient)} mod system.  Please ensure Instruments is installed and configured.");
 
             ClientNetworkChannel
-                .SetMessageHandler<ConfigurationSyncPacket>(ReceiveConfigurationSyncPacket);
+                .SetMessageHandler<Configuration>(ReceiveConfigurationSyncPacket);
 
             TickListenerId = api.Event.RegisterGameTickListener(OnGameTick, 50); // 20 Hz update rate
             // We are letting CAN Effects handle the effect stuff :3
         }
 
-        private void ReceiveConfigurationSyncPacket(ConfigurationSyncPacket packet)
+        private void ReceiveConfigurationSyncPacket(Configuration packet)
         {
             Mod.Logger.Notification("Overriding client configuration with server configuration.");
             // Does the effect radius really *need* to be synced? No. Will I anyway? I guess!
             Mod.Logger.Debug(
-                $"{nameof(Configuration)}.{nameof(Configuration.EffectRadius)}.{nameof(Configuration.EffectRadius.Horizontal)}: {Configuration.EffectRadius.Horizontal} => {packet.EffectRadiusHorizontal}");
-            Configuration.EffectRadius.Horizontal = packet.EffectRadiusHorizontal;
+                $"{nameof(Configuration)}.{nameof(Configuration.EffectRadius)}.{nameof(Configuration.EffectRadius.Horizontal)}: {Configuration.EffectRadius.Horizontal} => {packet.EffectRadius.Horizontal}");
+            Configuration.EffectRadius.Horizontal = packet.EffectRadius.Horizontal;
             Mod.Logger.Debug(
-                $"{nameof(Configuration)}.{nameof(Configuration.EffectRadius)}.{nameof(Configuration.EffectRadius.Vertical)}: {Configuration.EffectRadius.Vertical} => {packet.EffectRadiusVertical}");
-            Configuration.EffectRadius.Vertical = packet.EffectRadiusVertical;
+                $"{nameof(Configuration)}.{nameof(Configuration.EffectRadius)}.{nameof(Configuration.EffectRadius.Vertical)}: {Configuration.EffectRadius.Vertical} => {packet.EffectRadius.Vertical}");
+            Configuration.EffectRadius.Vertical = packet.EffectRadius.Vertical;
         }
 
         private void OnGameTick(float dt)

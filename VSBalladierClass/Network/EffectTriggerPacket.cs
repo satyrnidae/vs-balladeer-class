@@ -8,11 +8,4 @@ namespace VSBalladeerClass.Network
     {
         public required Vec3d SourcePos;
     }
-
-    [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
-    public class ConfigurationSyncPacket
-    {
-        public required float EffectRadiusVertical;
-        public required float EffectRadiusHorizontal;
-    }
 }
