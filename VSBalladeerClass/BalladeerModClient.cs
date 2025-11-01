@@ -1,10 +1,10 @@
 ﻿using instruments;
 using System;
 using System.Reflection;
-using effectshud.src;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
+using Vintagestory.GameContent;
 using VSBalladeerClass.Model;
 using VSBalladeerClass.Network;
 
@@ -18,6 +18,7 @@ namespace VSBalladeerClass
             throw new Exception("Failed to find thisClientPlaying field!");
 
         private InstrumentModClient? InstrumentMod { get; set; }
+        private CharacterSystem? CharacterSystem { get; set; }
 
         private ICoreClientAPI? ClientApi { get; set; }
 
@@ -54,6 +55,8 @@ namespace VSBalladeerClass
             ClientApi = api;
             InstrumentMod = api.ModLoader.GetModSystem<InstrumentModClient>() ?? throw new Exception(
                 $"Failed to locate the {nameof(InstrumentModClient)} mod system.  Please ensure Instruments is installed and configured.");
+            CharacterSystem = api.ModLoader.GetModSystem<CharacterSystem>() ?? throw new Exception(
+                $"Failed to locate the {nameof(CharacterSystem)} mod system. Please ensure Survival is enabled.");
 
             ClientNetworkChannel
                 .SetMessageHandler<Configuration>(ReceiveConfigurationSyncPacket);
@@ -65,22 +68,15 @@ namespace VSBalladeerClass
         private void ReceiveConfigurationSyncPacket(Configuration packet)
         {
             Mod.Logger.Notification("Overriding client configuration with server configuration.");
-            // Does the effect radius really *need* to be synced? No. Will I anyway? I guess!
             Mod.Logger.Debug(
-                $"{nameof(Configuration)}.{nameof(Configuration.EffectRadius)}.{nameof(Configuration.EffectRadius.Horizontal)}: {Configuration.EffectRadius.Horizontal} => {packet.EffectRadius.Horizontal}");
-            Configuration.EffectRadius.Horizontal = packet.EffectRadius.Horizontal;
-            Mod.Logger.Debug(
-                $"{nameof(Configuration)}.{nameof(Configuration.EffectRadius)}.{nameof(Configuration.EffectRadius.Vertical)}: {Configuration.EffectRadius.Vertical} => {packet.EffectRadius.Vertical}");
-            Configuration.EffectRadius.Vertical = packet.EffectRadius.Vertical;
+                $"{nameof(Configuration)}.{nameof(Configuration.ActivationPerSeconds)}: {Configuration.ActivationPerSeconds} => {packet.ActivationPerSeconds}");
+            Configuration.ActivationPerSeconds = packet.ActivationPerSeconds;
         }
 
         private void OnGameTick(float dt)
         {
-            if (ClientApi == null) return;
-
-            var charClass = ClientApi.World.Player.Entity.WatchedAttributes.GetString("characterClass");
-
-            if (charClass != "balladeer") return; // Don't bother doing anything unless the player is a balladeer.
+            // Don't bother doing anything unless the player is a balladeer.
+            if (ClientApi == null || CharacterSystem == null || !CharacterSystem.HasTrait(ClientApi.World.Player, "bard")) return;
 
             if (!IsClientPlayerPlaying)
             {
@@ -104,7 +100,7 @@ namespace VSBalladeerClass
                 });
             }
 
-            _effectTriggerTimer = (short)(++_effectTriggerTimer % 60); // Trigger effect every three seconds
+            _effectTriggerTimer = (short)(++_effectTriggerTimer % Math.Max(1, Configuration.ActivationPerSeconds * 20)); // Trigger effect every <ActivationPerSeconds> seconds (min 1)
         }
     }
 }

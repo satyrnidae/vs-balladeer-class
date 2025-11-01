@@ -34,7 +34,7 @@ namespace VSBalladeerClass
             if (api.ModLoader.GetModSystem<effectshud.src.effectshud>() == null)
             {
                 throw new Exception(
-                    "Failed to load the effectshud ModSystem. Please ensure CAN Effects is installed and enabled.");
+                    $"Failed to load the {nameof(effectshud.src.effectshud)} Mod System. Please ensure CAN Effects is installed and enabled.");
             }
 
             ServerNetworkChannel
@@ -58,11 +58,14 @@ namespace VSBalladeerClass
             if (players == null) return;
             Mod.Logger.Debug($"Found {players.Length} player{(players.Length == 1 ? "" : "s")}.");
 
+            var effectDurationInSeconds = Math.Max(1, Configuration.EffectSettings.EffectDurationSeconds);
+            var effectTier = Math.Max(1, Math.Min(5, Configuration.EffectSettings.EffectTier));
+
             foreach (var player in players)
             {
                 Mod.Logger.Debug($"Applying effect to {player.PlayerName} ({player.Entity.Pos.X}, {player.Entity.Pos.Y}, {player.Entity.Pos.Z})");
                 effectshud.src.effectshud.ApplyEffectOnEntity(player.Entity,
-                    new BalladeerEffect(7, 1));
+                    new BalladeerEffect(effectDurationInSeconds, effectTier));
             }
         }
     }
