@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>bin\$(Configuration)\Mods\mod</OutputPath>
     <Nullable>enable</Nullable>
@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Reference Include="effectshud">
-      <HintPath>libs\effectshud.dll</HintPath>
+      <HintPath>libs\1.20.12\effectshud.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VintagestoryAPI">
@@ -18,7 +18,7 @@
       <Private>false</Private>
     </Reference>
     <Reference Include="vsinstruments_base">
-      <HintPath>libs\vsinstruments_base.dll</HintPath>
+      <HintPath>libs\1.20.12\vsinstruments_base.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VSSurvivalMod">
@@ -73,19 +73,22 @@
 
 <ItemGroup>
   <None Update="assets\effectshud\lang\en.json">
-    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
   </None>
   <None Update="assets\effectshud\textures\effects\balladeerbuff.png">
-    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
   </None>
   <None Update="assets\game\lang\en.json">
-    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
   </None>
   <None Update="assets\vsballadierclass\config\characterclasses.json">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </None>
   <None Update="assets\vsballadierclass\config\traits.json">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+  <None Update="assets\vsballadierclass\patches\characterclasses.json">
+    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
   </None>
 </ItemGroup>
 

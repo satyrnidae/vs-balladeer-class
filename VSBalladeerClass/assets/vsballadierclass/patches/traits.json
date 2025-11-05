@@ -1,0 +1,49 @@
+[
+  {
+    "file": "game:config/traits",
+    "op": "Add",
+    "path": "/26",
+    "value": {
+      "code": "picky_eater",
+      "type": "positive",
+      "attributes": {
+        "hungerrate":  -0.05
+      }
+    }
+  },
+  {
+    "file": "game:config/traits",
+    "op": "Add",
+    "path": "/26",
+    "value": {
+      "code": "overconfident",
+      "type": "negative",
+      "attributes": {
+        "meleeWeaponsDamage": -0.15,
+        "rangedWeaponsDamage": -0.15
+      }
+    }
+  },
+  {
+    "file": "game:config/traits",
+    "op": "Add",
+    "path": "/26",
+    "value": {
+      "code": "brash",
+      "type": "negative",
+      "attributes": {
+        "animalSeekingRange": 0.15
+      }
+    }
+  },
+  {
+    "file": "game:config/traits",
+    "op": "Add",
+    "path": "/26",
+    "value": {
+      "code": "bard",
+      "type": "positive",
+      "attributes": {}
+    }
+  }
+]
