@@ -1,86 +1,85 @@
 ﻿using effectshud.src;
 using effectshud.src.DefaultEffects;
 
-namespace VSBalladeerClass.Effects
+namespace VSBalladeerClass.Effects;
+
+public class BalladeerEffect : CustomEffect
 {
-    public class BalladeerEffect : CustomEffect
+    #region Constants
+
+    private const string BALLADEER_EFFECT = "balladeerbuff";
+    private const string HEALING_EFFECTIVENESS = "healingeffectivness";
+    private const string HUNGER_RATE = "hungerrate";
+    private const string CAN_TEMPORAL_CHARGE = "cantemporalcharge";
+    private const string WALK_SPEED = "walkspeed";
+    private const string MELEE_WEAPON_DAMAGE = "meleeWeaponsDamage";
+    private const string RANGED_WEAPONS_DAMAGE = "rangedWeaponsDamage";
+    private const string RANGED_WEAPONS_ACCURACY = "rangedWeaponsAcc";
+    private const string RANGED_WEAPONS_SPEED = "rangedWeaponsSpeed";
+    private const string ANIMAL_SEEKING_RANGE = "animalSeekingRange";
+    private const string MINING_SPEED_MUL = "miningSpeedMul";
+
+    #endregion Constants
+
+    public BalladeerEffect()
     {
-        #region Constants
+        effectTypeId = BALLADEER_EFFECT;
+    }
 
-        private const string BALLADEER_EFFECT = "balladeerbuff";
-        private const string HEALING_EFFECTIVENESS = "healingeffectivness";
-        private const string HUNGER_RATE = "hungerrate";
-        private const string CAN_TEMPORAL_CHARGE = "cantemporalcharge";
-        private const string WALK_SPEED = "walkspeed";
-        private const string MELEE_WEAPON_DAMAGE = "meleeWeaponsDamage";
-        private const string RANGED_WEAPONS_DAMAGE = "rangedWeaponsDamage";
-        private const string RANGED_WEAPONS_ACCURACY = "rangedWeaponsAcc";
-        private const string RANGED_WEAPONS_SPEED = "rangedWeaponsSpeed";
-        private const string ANIMAL_SEEKING_RANGE = "animalSeekingRange";
-        private const string MINING_SPEED_MUL = "miningSpeedMul";
+    public BalladeerEffect(int seconds, int tier, bool infinite = false) : base(tier, infinite)
+    {
+        SetExpiryInRealSeconds(seconds);
+        positive = true;
+        effectTypeId = BALLADEER_EFFECT;
+    }
 
-        #endregion Constants
+    public override void OnStart()
+    {
+        ApplyStatChange(tier);
+    }
 
-        public BalladeerEffect()
+    public override void OnStack(Effect otherEffect)
+    {
+        if (tier <= otherEffect.Tier)
         {
-            effectTypeId = BALLADEER_EFFECT;
-        }
-
-        public BalladeerEffect(int seconds, int tier, bool infinite = false) : base(tier, infinite)
-        {
-            SetExpiryInRealSeconds(seconds);
-            positive = true;
-            effectTypeId = BALLADEER_EFFECT;
-        }
-
-        public override void OnStart()
-        {
-            ApplyStatChange(tier);
-        }
-
-        public override void OnStack(Effect otherEffect)
-        {
-            if (tier <= otherEffect.Tier)
+            if (tier < otherEffect.Tier)
             {
-                if (tier < otherEffect.Tier)
-                {
-                    tier = otherEffect.Tier;
-                    ApplyStatChange(tier);
-                }
-
-                ExpireTick = otherEffect.ExpireTick;
-                TickCounter = otherEffect.TickCounter;
+                tier = otherEffect.Tier;
+                ApplyStatChange(tier);
             }
-        }
 
-        public override void OnExpire()
-        {
-            ClearStatChange();
+            ExpireTick = otherEffect.ExpireTick;
+            TickCounter = otherEffect.TickCounter;
         }
+    }
 
-        public override bool OnDeath()
-        {
-            ClearStatChange();
-            return base.OnDeath();
-        }
+    public override void OnExpire()
+    {
+        ClearStatChange();
+    }
 
-        private void ClearStatChange()
-        {
-            ApplyStatChange(0);
-        }
+    public override bool OnDeath()
+    {
+        ClearStatChange();
+        return base.OnDeath();
+    }
 
-        private void ApplyStatChange(int multiplier)
-        {
-            SetStat(HEALING_EFFECTIVENESS, BALLADEER_EFFECT, 0.15f * multiplier);
-            SetStat(HUNGER_RATE, BALLADEER_EFFECT, -0.15f * multiplier);
-            SetStat(CAN_TEMPORAL_CHARGE, BALLADEER_EFFECT, 0.2f * multiplier);
-            SetStat(WALK_SPEED, BALLADEER_EFFECT, 0.10f * multiplier);
-            SetStat(MELEE_WEAPON_DAMAGE, BALLADEER_EFFECT, 0.25f * multiplier);
-            SetStat(RANGED_WEAPONS_DAMAGE, BALLADEER_EFFECT, 0.25f * multiplier);
-            SetStat(RANGED_WEAPONS_ACCURACY, BALLADEER_EFFECT, 0.1f * multiplier);
-            SetStat(RANGED_WEAPONS_SPEED, BALLADEER_EFFECT, 0.1f * multiplier);
-            SetStat(ANIMAL_SEEKING_RANGE, BALLADEER_EFFECT, 0.15f * multiplier);
-            SetStat(MINING_SPEED_MUL, BALLADEER_EFFECT, 0.1f * multiplier);
-        }
+    private void ClearStatChange()
+    {
+        ApplyStatChange(0);
+    }
+
+    private void ApplyStatChange(int multiplier)
+    {
+        SetStat(HEALING_EFFECTIVENESS, BALLADEER_EFFECT, 0.15f * multiplier);
+        SetStat(HUNGER_RATE, BALLADEER_EFFECT, -0.15f * multiplier);
+        SetStat(CAN_TEMPORAL_CHARGE, BALLADEER_EFFECT, 0.2f * multiplier);
+        SetStat(WALK_SPEED, BALLADEER_EFFECT, 0.10f * multiplier);
+        SetStat(MELEE_WEAPON_DAMAGE, BALLADEER_EFFECT, 0.25f * multiplier);
+        SetStat(RANGED_WEAPONS_DAMAGE, BALLADEER_EFFECT, 0.25f * multiplier);
+        SetStat(RANGED_WEAPONS_ACCURACY, BALLADEER_EFFECT, 0.1f * multiplier);
+        SetStat(RANGED_WEAPONS_SPEED, BALLADEER_EFFECT, 0.1f * multiplier);
+        SetStat(ANIMAL_SEEKING_RANGE, BALLADEER_EFFECT, 0.15f * multiplier);
+        SetStat(MINING_SPEED_MUL, BALLADEER_EFFECT, 0.1f * multiplier);
     }
 }

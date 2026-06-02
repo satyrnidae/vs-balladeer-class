@@ -1,0 +1,52 @@
+[
+  // flutecallloop
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "Copy",
+    "fromPath": "/client/animations/215",
+    "path": "/tmp"
+  },
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "Replace",
+    "path": "/tmp/code",
+    "value": "flutecallloop"
+  },
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "Replace",
+    "path": "/tmp/animation",
+    "value": "flutecallloop"
+  },
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "Move",
+    "fromPath": "/tmp",
+    "path": "/client/animations/-"
+  },
+  // flutecallloop-fp
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "Copy",
+    "fromPath": "/client/animations/216",
+    "path": "/tmp"
+  },
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "Replace",
+    "path": "/tmp/code",
+    "value": "flutecallloop-fp"
+  },
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "Replace",
+    "path": "/tmp/animation",
+    "value": "flutecallloop-fp"
+  },
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "Move",
+    "fromPath": "/tmp",
+    "path": "/client/animations/-"
+  }
+]

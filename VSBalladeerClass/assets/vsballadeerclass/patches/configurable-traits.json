@@ -1,0 +1,42 @@
+[
+  {
+    "file": "config/characterclasses",
+    "op": "Add",
+    "path": "/0/traits/-",
+    "value": "claustrophobic",
+    "condition": {
+      "when": "balladeerEnableClaustrophobic",
+      "isValue": true
+    }
+  },
+  {
+    "file": "config/characterclasses",
+    "op": "Add",
+    "path": "/0/traits/-",
+    "value": "overconfident",
+    "condition": {
+      "when": "balladeerEnableOverconfident",
+      "isValue": true
+    }
+  },
+  {
+    "file": "config/characterclasses",
+    "op": "Add",
+    "path": "/0/traits/-",
+    "value": "brash",
+    "condition": {
+      "when": "balladeerEnableBrash",
+      "isValue": true
+    }
+  },
+  {
+    "file": "config/characterclasses",
+    "op": "Add",
+    "path": "/0/traits/-",
+    "value": "frail",
+    "condition": {
+      "when": "balladeerEnableFrail",
+      "isValue": true
+    }
+  }
+]

@@ -1,0 +1,76 @@
+[
+  // flutecallloop
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Copy",
+    "path": "/tmp",
+    "fromPath": "/animations/245"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Replace",
+    "path": "/tmp/name",
+    "value": "FluteCallLoop"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Replace",
+    "path": "/tmp/code",
+    "value": "flutecallloop"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Replace",
+    "path": "/tmp/onActivityStopped",
+    "value": "EaseOut"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Replace",
+    "path": "/tmp/onAnimationEnd",
+    "value": "Repeat"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Move",
+    "path": "/animations/-",
+    "fromPath": "/tmp"
+  },
+  // flutecallloop-fp
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Copy",
+    "path": "/tmp",
+    "fromPath": "/animations/246"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Replace",
+    "path": "/tmp/name",
+    "value": "FluteCallLoop-fp"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Replace",
+    "path": "/tmp/code",
+    "value": "flutecallloop-fp"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Replace",
+    "path": "/tmp/onActivityStopped",
+    "value": "EaseOut"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Replace",
+    "path": "/tmp/onAnimationEnd",
+    "value": "Repeat"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph-faceless",
+    "op": "Move",
+    "path": "/animations/-",
+    "fromPath": "/tmp"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "code": "boneflute",
+  "class": "boneflute",
+  "behaviors": [],
+  "attributes": {
+    "rackable": true,
+    "toolrackTransform": {
+			"translation": { "x": -0.071, "y": -0.64, "z": 0 },
+			"rotation": { "x": 0, "y": 0, "z": 180 },
+			"scale": 1.78
+		}
+  },
+  "maxstacksize": 1,
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ]
+  },
+  "shape": { "base": "game:item/tool/instrument/flute1" },
+  "guiTransform": {
+		"translation": { "x": 0, "y": 0, "z": 0 },
+		"rotation": { "x": -48, "y": 134, "z": 171 },
+		"origin": { "x": 0.53, "y": 0.2, "z": 0.4 },
+		"scale": 2.8
+	},
+	"groundTransform": {
+		"translation": { "x": 0, "y": 0, "z": 0 },
+		"rotation": { "x": 0, "y": 0, "z": 0 },
+		"origin": { "x": 0.5, "y": -0, "z": 0.5 },
+		"scale": 4
+	},
+	"tpHandTransform": {
+		"translation": { "x": -0.9, "y": -0.05, "z": -0.78 },
+		"rotation": { "x": 85, "y": 0, "z": 2 },
+		"origin": { "x": 0.5, "y": 0, "z": 0.5 },
+		"scale": 0.68
+	},
+  "heldTpUseAnimation": "flutecallloop"
+}

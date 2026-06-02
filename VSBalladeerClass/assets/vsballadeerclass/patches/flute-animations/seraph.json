@@ -1,0 +1,86 @@
+[
+  // flutecallloop
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Copy",
+    "path": "/tmp",
+    "fromPath": "/animations/231"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Replace",
+    "path": "/tmp/name",
+    "value": "FluteCallLoop"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Replace",
+    "path": "/tmp/code",
+    "value": "flutecallloop"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Replace",
+    "path": "/tmp/onActivityStopped",
+    "value": "EaseOut"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Replace",
+    "path": "/tmp/onAnimationEnd",
+    "value": "Repeat"
+  },
+  // {
+  //   "file": "game:shapes/entity/humanoid/seraph",
+  //   "op": "Remove",
+  //   "path": "/tmp/keyframes/5"
+  // },
+  // {
+  //   "file": "game:shapes/entity/humanoid/seraph",
+  //   "op": "Remove",
+  //   "path": "/tmp/keyframes/0"
+  // },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Move",
+    "path": "/animations/-",
+    "fromPath": "/tmp"
+  },
+  // flutecallloop-fp
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Copy",
+    "path": "/tmp",
+    "fromPath": "/animations/232"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Replace",
+    "path": "/tmp/name",
+    "value": "FluteCallLoop-fp"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Replace",
+    "path": "/tmp/code",
+    "value": "flutecallloop-fp"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Replace",
+    "path": "/tmp/onActivityStopped",
+    "value": "EaseOut"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Replace",
+    "path": "/tmp/onAnimationEnd",
+    "value": "Repeat"
+  },
+  {
+    "file": "game:shapes/entity/humanoid/seraph",
+    "op": "Move",
+    "path": "/animations/-",
+    "fromPath": "/tmp"
+  }
+]

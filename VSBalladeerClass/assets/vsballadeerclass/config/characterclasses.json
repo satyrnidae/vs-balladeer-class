@@ -1,7 +1,7 @@
 [
   {
     "code": "balladeer",
-    "traits": [ "bard", "fleetfooted", "picky_eater", "brash", "claustrophobic", "overconfident", "frail" ],
+    "traits": [ "bard", "fleetfooted", "picky_eater" ],
     "gear": [
       {
         "type": "item",
@@ -26,10 +26,6 @@
       {
         "type": "item",
         "code": "game:clothes-lowerbody-minstrel-pants"
-      },
-      {
-        "type": "item",
-        "code": "instruments:accordion"
       }
     ]
   }
