@@ -1,0 +1,28 @@
+[
+  {
+    "enabled": false,
+    "ingredientPattern": "AL",
+    "ingredients": {
+      "A": { "type": "item", "code": "game:instrument-flute1" },
+      "L": { "type": "item", "code": "baconbaconbacon:bacon-cooked" }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": { "type": "item", "code": "baconflute", "quantity": 1 },
+    "requiresTrait": "bard"
+  },
+  {
+    "enabled": false,
+    "ingredientPattern": "AL",
+    "ingredients": {
+      "A": { "type": "item", "code": "boneflute" },
+      "L": { "type": "item", "code": "baconbaconbacon:bacon-cooked" }
+    },
+    "shapeless": true,
+    "width": 2,
+    "height": 1,
+    "output": { "type": "item", "code": "baconflute", "quantity": 1 },
+    "requiresTrait": "bard"
+  }
+]

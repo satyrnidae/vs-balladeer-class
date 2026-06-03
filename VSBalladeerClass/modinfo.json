@@ -11,7 +11,7 @@
       "Hammersmith: Name and other feature ideas"
     ],
     "description": "Play instruments to buff nearby players!",
-    "version": "2.0.0-pre.1",
+    "version": "2.0.0-pre.2",
     "requiredOnClient": true,
     "requiredOnServer": true,
   "dependencies": {

@@ -56,6 +56,7 @@ public abstract class BalladeerModCommon : ModSystem
         Mod.Logger.Notification($"Starting Balladeer on {api.Side} side.");
 
         api.RegisterItemClass("boneflute", typeof(BoneFluteItem));
+        api.RegisterItemClass("baconflute", typeof(BaconFluteItem));
 
         if (_configuration == null)
         {

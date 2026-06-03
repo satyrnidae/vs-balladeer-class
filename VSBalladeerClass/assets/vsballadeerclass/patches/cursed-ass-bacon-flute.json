@@ -1,0 +1,47 @@
+[
+  {
+    "file": "itemtypes/baconflute",
+    "op": "Replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      {
+        "modid": "baconbaconbacon"
+      }
+    ],
+    "condition": {
+      "when": "BaconBaconBacon_EnableBaconCrops",
+      "isValue": true
+    }
+  },
+  {
+    "file": "recipes/grid/baconflute",
+    "op": "Replace",
+    "path": "/0/enabled",
+    "value": true,
+    "dependsOn": [
+      {
+        "modid": "baconbaconbacon"
+      }
+    ],
+    "condition": {
+      "when": "BaconBaconBacon_EnableBaconCrops",
+      "isValue": true
+    }
+  },
+  {
+    "file": "recipes/grid/baconflute",
+    "op": "Replace",
+    "path": "/1/enabled",
+    "value": true,
+    "dependsOn": [
+      {
+        "modid": "baconbaconbacon"
+      }
+    ],
+    "condition": {
+      "when": "BaconBaconBacon_EnableBaconCrops",
+      "isValue": true
+    }
+  }
+]
