@@ -43,7 +43,6 @@ public abstract class BalladeerModCommon : ModSystem
     protected INetworkChannel? NetworkChannel { get; set; }
 
     private Configuration? _configuration;
-
     public override bool ShouldLoad(EnumAppSide forSide)
     {
         return false;
@@ -57,6 +56,7 @@ public abstract class BalladeerModCommon : ModSystem
 
         api.RegisterItemClass("boneflute", typeof(BoneFluteItem));
         api.RegisterItemClass("baconflute", typeof(BaconFluteItem));
+        api.RegisterItemClass("frogguiro", typeof(FrogGuiroItem));
 
         if (_configuration == null)
         {
@@ -101,6 +101,12 @@ public abstract class BalladeerModCommon : ModSystem
         api.World.Config.SetBool("balladeerEnableOverconfident", _configuration.Traits.Overconfident);
         api.World.Config.SetBool("balladeerEnableBrash", _configuration.Traits.Brash);
         api.World.Config.SetBool("balladeerEnableFrail", _configuration.Traits.Frail);
+        api.World.Config.SetBool("balladeerBaconFluteEnabled", _configuration.Instruments.BaconFlute.Enabled);
+        api.World.Config.SetBool("balladeerBoneFluteEnabled", _configuration.Instruments.BoneFlute.Enabled);
+        api.World.Config.SetBool("balladeerFrogGuiroEnabled", _configuration.Instruments.FrogGuiro.Enabled);
+        api.World.Config.SetBool("balladeerBaconFluteRequireBardTraitToCraft", _configuration.Instruments.BaconFlute.RequireBardTraitToCraft);
+        api.World.Config.SetBool("balladeerBoneFluteRequireBardTraitToCraft", _configuration.Instruments.BoneFlute.RequireBardTraitToCraft);
+        api.World.Config.SetBool("balladeerFrogGuiroRequireBardTraitToCraft", _configuration.Instruments.FrogGuiro.RequireBardTraitToCraft);
 
         if (loadSuccessful)
         {

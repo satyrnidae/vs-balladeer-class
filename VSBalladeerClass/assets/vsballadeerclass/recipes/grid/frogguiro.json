@@ -1,0 +1,14 @@
+[
+  {
+    "ingredientPattern": "A,L",
+    "ingredients": {
+      "A": { "type": "item", "code": "game:firewood" },
+      "L": { "type": "item", "tags": ["tool-knife"], "isTool": true }
+    },
+    "shapeless": true,
+    "width": 1,
+    "height": 2,
+    "output": { "type": "item", "code": "frogguiro", "quantity": 1 },
+    "requiresTrait": "bard"
+  }
+]

@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Vintagestory.API.Common;
+using Vintagestory.API.Common.Entities;
+using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
+using Vintagestory.Server;
 using VSBalladeerClass.Effects;
 using VSBalladeerClass.Network;
 
@@ -13,6 +18,19 @@ public class BalladeerModServer : BalladeerModCommon
     private IServerNetworkChannel ServerNetworkChannel => NetworkChannel as IServerNetworkChannel ??
                                                           throw new Exception(
                                                               "Expected the server network channel, but it wasn't registered.");
+
+    private bool SynergyEnabled
+    {
+        get
+        {
+            if (_synergyEnabledInternal == null && ServerApi != null) {
+                _synergyEnabledInternal = ServerApi.ModLoader.IsModEnabled("synergy");
+            }
+            return _synergyEnabledInternal ?? false;
+        }
+    }
+
+    private bool? _synergyEnabledInternal;
 
     public override void Dispose()
     {
@@ -37,6 +55,7 @@ public class BalladeerModServer : BalladeerModCommon
                 $"Failed to load the {nameof(effectshud.src.effectshud)} Mod System. Please ensure CAN Effects is installed and enabled.");
         }
 
+
         ServerNetworkChannel
             .SetMessageHandler<EffectTriggerPacket>(ReceivedEffectTriggerPacket);
         api.Event.PlayerJoin += Event_PlayerJoin;
@@ -52,9 +71,23 @@ public class BalladeerModServer : BalladeerModCommon
     {
         if (ServerApi == null) return;
 
-        Mod.Logger.Debug($"Received {nameof(EffectTriggerPacket)} from {fromPlayer.PlayerName}. Applying effect to all players in a {Configuration.EffectRadius.Horizontal * 2.0f}x{Configuration.EffectRadius.Vertical * 2.0f} ellipsoid from point ({packet.SourcePos.X}, {packet.SourcePos.Y}, {packet.SourcePos.Z}).");
-        var players = ServerApi.World.GetPlayersAround(packet.SourcePos, Configuration.EffectRadius.Horizontal,
-            Configuration.EffectRadius.Vertical, player => player.Entity.Alive);
+        var sourcePos = fromPlayer.Entity.Pos;
+
+        Mod.Logger.Debug($"Received {nameof(EffectTriggerPacket)} from {fromPlayer.PlayerName}. "
+            + $"Applying effect to all players in a {Configuration.EffectRadius.Horizontal * 2.0f}×{Configuration.EffectRadius.Vertical * 2.0f} ellipsoid "
+            + $"from point ({sourcePos}).");
+
+        EntityPlayer[] players;
+        // Use slower GetEntitiesAround to bypass weird issue with Synergy DPE leaving player world positions null
+        if (SynergyEnabled) {
+            players = [.. ServerApi.World.GetEntitiesAround(sourcePos.XYZFast.ToVec3d(), Configuration.EffectRadius.Horizontal,
+                        Configuration.EffectRadius.Vertical, entity => entity is EntityPlayer && entity.Alive).OfType<EntityPlayer>()];
+        }
+        else
+        {
+            players = [.. ServerApi.World.GetPlayersAround(sourcePos.XYZFast.ToVec3d(), Configuration.EffectRadius.Horizontal,
+                                Configuration.EffectRadius.Vertical, player => player.Entity.Alive).Select(player => player.Entity)];
+        }
         if (players == null) return;
         Mod.Logger.Debug($"Found {players.Length} player{(players.Length == 1 ? "" : "s")}.");
 
@@ -63,8 +96,8 @@ public class BalladeerModServer : BalladeerModCommon
 
         foreach (var player in players)
         {
-            Mod.Logger.Debug($"Applying effect to {player.PlayerName} ({player.Entity.Pos.X}, {player.Entity.Pos.Y}, {player.Entity.Pos.Z})");
-            effectshud.src.effectshud.ApplyEffectOnEntity(player.Entity,
+            Mod.Logger.Debug($"Applying effect to {player.GetName()} ({player.Pos})");
+            effectshud.src.effectshud.ApplyEffectOnEntity(player,
                 new BalladeerEffect(effectDurationInSeconds, effectTier));
         }
     }

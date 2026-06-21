@@ -2,13 +2,13 @@
   "trait-bard": "<font color=\"#c69c29\">• Bard </font>",
   "trait-brash": "<font color=\"#ff8484\">• Brash </font>",
   "trait-overconfident": "<font color=\"#ff8484\">• Overconfident </font>",
-  "trait-picky_eater": "<font color=\"#84ff84\">• Picky eater </font>",
+  "trait-picky_eater": "<font color=\"#84ff84\">• Light eater </font>",
 
   "traitname-bard": "Bard",
   "traitname-brash": "Brash",
   "traitname-overconfident": "Overconfident",
-  "traitname-picky_eater": "Picky eater",
-  "traitdesc-bard": "Applies the following to nearby Seraphs while playing: <font color=\"#ff8484\">+15% animal detection range</font>, +15% healing effectiveness, -15% hunger rate, +20% temporal charge, +10% walk speed, +10% mining speed, +25% melee and ranged weapon damage, +10% ranged weapon accuracy and speed. Also allows you to craft a playable bone flute.",
+  "traitname-picky_eater": "Light eater",
+  "traitdesc-bard": "Applies the following to nearby Seraphs while playing: <font color=\"#ff8484\">+15% animal detection range</font>, +15% healing effectiveness, -15% hunger rate, +20% temporal charge, +10% walk speed, +10% mining speed, +25% melee and ranged weapon damage, +10% ranged weapon accuracy and speed. Also allows you to craft various simple instruments.",
   "characterclass-balladeer": "Balladeer",
 
   "charattribute-animalSeekingRange-0.15": "+15% animal detection range",

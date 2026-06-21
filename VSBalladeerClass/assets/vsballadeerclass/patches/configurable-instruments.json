@@ -1,0 +1,50 @@
+
+[
+  {
+    "file": "itemtypes/boneflute",
+    "op": "Add",
+    "path": "/enabled",
+    "value": false,
+    "condition": {
+      "when": "balladeerBoneFluteEnabled",
+      "isValue": false
+    }
+  },
+  {
+    "file": "itemtypes/frogguiro",
+    "op": "Add",
+    "path": "/enabled",
+    "value": false,
+    "condition": {
+      "when": "balladeerFrogGuiroEnabled",
+      "isValue": false
+    }
+  },
+  {
+    "file": "recipes/grid/boneflute",
+    "op": "Remove",
+    "path": "/0/requiresTrait",
+    "condition": {
+      "when": "balladeerBoneFluteRequireBardTraitToCraft",
+      "isValue": false
+    }
+  },
+  {
+    "file": "recipes/grid/boneflute",
+    "op": "Remove",
+    "path": "/2/requiresTrait",
+    "condition": {
+      "when": "balladeerBoneFluteRequireBardTraitToCraft",
+      "isValue": false
+    }
+  },
+  {
+    "file": "recipes/grid/frogguiro",
+    "op": "Remove",
+    "path": "/0/requiresTrait",
+    "condition": {
+      "when": "balladeerFrogGuiroRequireBardTraitToCraft",
+      "isValue": false
+    }
+  }
+]

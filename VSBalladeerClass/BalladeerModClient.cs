@@ -93,11 +93,7 @@ public class BalladeerModClient : BalladeerModCommon
         if (_effectTriggerTimer == 0)
         {
             Mod.Logger.Debug($"Local balladeer {ClientApi.World.Player.PlayerName} is triggering an effect phase.");
-            ClientNetworkChannel.SendPacket(new EffectTriggerPacket()
-            {
-                SourcePos = new Vec3d(ClientApi.World.Player.Entity.Pos.X, ClientApi.World.Player.Entity.Pos.Y,
-                    ClientApi.World.Player.Entity.Pos.Z)
-            });
+            ClientNetworkChannel.SendPacket(new EffectTriggerPacket());
         }
 
         _effectTriggerTimer = (short)(++_effectTriggerTimer % Math.Max(1, Configuration.ActivationPerSeconds * 20)); // Trigger effect every <ActivationPerSeconds> seconds (min 1)

@@ -8,15 +8,17 @@
     ],
     "contributors": [
       "JTivel: Original request",
-      "Hammersmith: Name and other feature ideas"
+      "Hammersmith: Name and other feature ideas, bacon flute sound (a3)",
+      "GunnyStryker: Bacon flute sound (a4)",
+      "shrinerh/DougDimmadome2: Bacon texture, bacon flute sound (a0, a1, a7)",
+      "RavenousBagels: Bacon flute sound (a1)"
     ],
     "description": "Play instruments to buff nearby players!",
-    "version": "2.0.0-pre.2",
+    "version": "2.0.0-pre.3",
     "requiredOnClient": true,
     "requiredOnServer": true,
   "dependencies": {
     "game": "1.22.0",
-    "vsinstrumentsbasetemp": "2.0.7",
     "effectshud": "0.3.3"
   },
   "website": "https://satyrn.dev"

@@ -14,6 +14,23 @@ public class Configuration
     public BalladeerEffectRadius EffectRadius = new();
 
     public BalladeerTraitsConfig Traits = new();
+
+    public BalladeerInstrumentsConfig Instruments = new();
+}
+
+[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
+public class BalladeerInstrumentsConfig
+{
+    public InstrumentFlags BoneFlute = new();
+    public InstrumentFlags BaconFlute = new();
+    public InstrumentFlags FrogGuiro = new();
+}
+
+[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
+public class InstrumentFlags
+{
+    public bool Enabled = true;
+    public bool RequireBardTraitToCraft = true;
 }
 
 [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]

@@ -43,5 +43,78 @@
       "when": "BaconBaconBacon_EnableBaconCrops",
       "isValue": true
     }
+  },
+  {
+    "file": "itemtypes/baconflute",
+    "op": "Replace",
+    "path": "/enabled",
+    "value": false,
+    "dependsOn": [
+      {
+        "modid": "baconbaconbacon"
+      }
+    ],
+    "condition": {
+      "when": "balladeerBaconFluteEnabled",
+      "isValue": false
+    }
+  },
+  {
+    "file": "recipes/grid/baconflute",
+    "op": "Replace",
+    "path": "/0/enabled",
+    "value": false,
+    "dependsOn": [
+      {
+        "modid": "baconbaconbacon"
+      }
+    ],
+    "condition": {
+      "when": "balladeerBaconFluteEnabled",
+      "isValue": false
+    }
+  },
+  {
+    "file": "recipes/grid/baconflute",
+    "op": "Replace",
+    "path": "/1/enabled",
+    "value": false,
+    "dependsOn": [
+      {
+        "modid": "baconbaconbacon"
+      }
+    ],
+    "condition": {
+      "when": "balladeerBaconFluteEnabled",
+      "isValue": false
+    }
+  },
+  {
+    "file": "recipes/grid/baconflute",
+    "op": "Remove",
+    "path": "/0/requiresTrait",
+    "dependsOn": [
+      {
+        "modid": "baconbaconbacon"
+      }
+    ],
+    "condition": {
+      "when": "balladeerBaconFluteRequireBardTraitToCraft",
+      "isValue": false
+    }
+  },
+  {
+    "file": "recipes/grid/baconflute",
+    "op": "Remove",
+    "path": "/1/requiresTrait",
+    "dependsOn": [
+      {
+        "modid": "baconbaconbacon"
+      }
+    ],
+    "condition": {
+      "when": "balladeerBaconFluteRequireBardTraitToCraft",
+      "isValue": false
+    }
   }
 ]

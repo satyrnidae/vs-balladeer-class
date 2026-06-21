@@ -1,0 +1,55 @@
+{
+  "code": "frogguiro",
+  "class": "frogguiro",
+  "behaviors": [
+		{
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "SingleCenter",
+				"collisionBox": {
+					"x1": 0.25,
+					"x2": 0.75,
+					"y1": 0,
+					"y2": 0.33,
+					"z1": 0.25,
+					"z2": 0.75
+				}
+			}
+		}
+	],
+	"attributes": {
+			"groundStorageTransform": {
+			"translation": { "x": 0.1, "y": -0, "z": -0.1 },
+			"rotation": { "x": 0, "y": 137, "z": 0 }
+			}
+	},
+	"combustibleProps": {
+		"burnTemperature": 700,
+		"burnDuration": 12
+	},
+  "maxstacksize": 1,
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ]
+  },
+  "shape": { "base": "item/tool/instrument/frogguiro" },
+  "guiTransform": {
+		"translation": { "x": 0, "y": 0, "z": 0 },
+		"rotation": { "x": -48, "y": 134, "z": 171 },
+		"origin": { "x": 0.53, "y": 0.2, "z": 0.4 },
+		"scale": 2.8
+	},
+	"groundTransform": {
+		"translation": { "x": 0, "y": 0, "z": 0 },
+		"rotation": { "x": 0, "y": 0, "z": 0 },
+		"origin": { "x": 0.5, "y": -0, "z": 0.5 },
+		"scale": 4
+	},
+	"tpHandTransform": {
+    "translation": { "x": -0.9, "y": 0.05, "z": -0.7799 },
+		"rotation": { "x": 64, "y": 1, "z": -73 },
+		"origin": { "x": 0.5, "y": 0, "z": 0.5 },
+		"scale": 0.64
+	},
+  "heldTpUseAnimation": "holdbothhands"
+}
