@@ -14,7 +14,7 @@
       "RavenousBagels: Bacon flute sound (a1)"
     ],
     "description": "Play instruments to buff nearby players!",
-    "version": "2.0.0-pre.3",
+    "version": "2.0.0-pre.4",
     "requiredOnClient": true,
     "requiredOnServer": true,
   "dependencies": {
